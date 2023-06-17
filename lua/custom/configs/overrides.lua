@@ -12,6 +12,7 @@ M.treesitter = {
     "c",
     "markdown",
     "markdown_inline",
+    "rust",
   },
   indent = {
     enable = true,
@@ -52,6 +53,16 @@ M.nvimtree = {
       show = {
         git = true,
       },
+    },
+  },
+
+  view = {
+    side = "right",
+  },
+
+  actions = {
+    open_file = {
+      quit_on_open = true,
     },
   },
 }
