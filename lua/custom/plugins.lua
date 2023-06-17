@@ -61,7 +61,6 @@ local plugins = {
   --   lazy = false,
   -- }
 
-  -- vim-tmux-navigate
   {
     "christoomey/vim-tmux-navigator",
     cmd = {
@@ -76,6 +75,16 @@ local plugins = {
       { "<C-k>", mode = "n" },
       { "<C-l>", mode = "n" },
     },
+  },
+
+  {
+    "kylechui/nvim-surround",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup {
+        -- Configuration here, or leave empty to use defaults
+      }
+    end,
   },
 }
 
