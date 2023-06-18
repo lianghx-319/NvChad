@@ -135,6 +135,71 @@ local plugins = {
       }
     end,
   },
+
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "rust-analyzer",
+      },
+    },
+  },
+  {
+    "simrat39/rust-tools.nvim",
+    ft = "rust",
+    dependencies = "neovim/nvim-lspconfig",
+    config = function()
+      require("rust-tools").setup(require "custom.configs.rust-tools")
+    end,
+  },
+  {
+    "mfussenegger/nvim-dap",
+    init = function()
+      require("core.utils").load_mappings "dap"
+    end,
+  },
+  {
+    "saecki/crates.nvim",
+    ft = { "toml" },
+    init = function()
+      require("core.utils").load_mappings "crates"
+    end,
+    config = function(_, opts)
+      local crates = require "crates"
+      crates.setup(opts)
+      require("cmp").setup.buffer {
+        sources = { { name = "crates" } },
+      }
+      crates.show()
+    end,
+  },
+  {
+    "rust-lang/rust.vim",
+    ft = "rust",
+    init = function()
+      vim.g.rustfmt_autosave = 1
+    end,
+  },
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    lazy = false,
+    config = function()
+      require("nvim-dap-virtual-text").setup()
+    end,
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    config = function()
+      local M = require "plugins.configs.cmp"
+      M.completion.completeopt = "menu,menuone,noselect"
+      M.mapping["<CR>"] = require("cmp").mapping.confirm {
+        behavior = require("cmp").ConfirmBehavior.Insert,
+        select = false,
+      }
+      table.insert(M.sources, { name = "crates" })
+      require("cmp").setup(M)
+    end,
+  },
 }
 
 return plugins

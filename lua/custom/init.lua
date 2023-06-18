@@ -1,4 +1,5 @@
 local opt = vim.opt
+local g = vim.g
 -- local autocmd = vim.api.nvim_create_autocmd
 
 -- Auto resize panes when resizing nvim window
@@ -6,6 +7,9 @@ local opt = vim.opt
 --   pattern = "*",
 --   command = "tabdo wincmd =",
 -- })
+
+-------------------------------------- globals ------------------------------------------
+g.dap_virtual_text = true
 
 -------------------------------------- options ------------------------------------------
 opt.relativenumber = true -- default relative line number
