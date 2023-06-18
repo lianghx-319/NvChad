@@ -93,7 +93,7 @@ local plugins = {
     keys = function()
       ---@type LazyKeys[]
       local ret = {}
-      for _, key in ipairs({ "f", "F", "t", "T" }) do
+      for _, key in ipairs { "f", "F", "t", "T" } do
         ret[#ret + 1] = { key, mode = { "n", "x", "o" }, desc = key }
       end
       return ret
@@ -108,13 +108,31 @@ local plugins = {
       { "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
     },
     config = function(_, opts)
-      local leap = require("leap")
+      local leap = require "leap"
       for k, v in pairs(opts) do
         leap.opts[k] = v
       end
       leap.add_default_mappings(true)
       vim.keymap.del({ "x", "o" }, "x")
       vim.keymap.del({ "x", "o" }, "X")
+    end,
+  },
+
+  -- ChatGPT
+  {
+    "lianghx-319/ChatGPT.nvim",
+    event = "VeryLazy",
+    version = "main",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      require("chatgpt").setup {
+        api_key_cmd = "op read op://Private/OPENAI_API/credential --no-newline",
+        api_host_cmd = "op read op://Private/OPENAI_API/hostname --no-newline",
+      }
     end,
   },
 }
