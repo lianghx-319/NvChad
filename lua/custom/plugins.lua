@@ -130,8 +130,8 @@ local plugins = {
     },
     config = function()
       require("chatgpt").setup {
-        api_key_cmd = "op read op://Private/OPENAI_API/credential --no-newline",
-        api_host_cmd = "op read op://Private/OPENAI_API/hostname --no-newline",
+        api_key_cmd = "pass show open_ai/api/token",
+        api_host_cmd = "pass show open_ai/api/proxy_host",
       }
     end,
   },
