@@ -19,6 +19,14 @@ M.general = {
     ["<C-l>"] = { "<cmd> TmuxNavigateRight <CR>", "Tmux right" },
     ["<C-j>"] = { "<cmd> TmuxNavigateDown <CR>", "Tmux down" },
     ["<C-k>"] = { "<cmd> TmuxNavigateUp <CR>", "Tmux up" },
+
+    -- toggle transparency
+    ["<leader>tt"] = {
+      function()
+        require("base46").toggle_transparency()
+      end,
+      "Toggle transparency"
+    },
   },
 }
 
@@ -27,26 +35,26 @@ M.dap = {
   n = {
     ["<leader>db"] = { "<cmd> DapToggleBreakpoint <CR>" },
     ["<leader>dus"] = {
-      function ()
-        local widgets = require('dap.ui.widgets');
-        local sidebar = widgets.sidebar(widgets.scopes);
-        sidebar.open();
+      function()
+        local widgets = require "dap.ui.widgets"
+        local sidebar = widgets.sidebar(widgets.scopes)
+        sidebar.open()
       end,
-      "Open debugging sidebar"
-    }
-  }
+      "Open debugging sidebar",
+    },
+  },
 }
 
 M.crates = {
   plugin = true,
   n = {
     ["<leader>rcu"] = {
-      function ()
-        require('crates').upgrade_all_crates()
+      function()
+        require("crates").upgrade_all_crates()
       end,
-      "update crates"
-    }
-  }
+      "update crates",
+    },
+  },
 }
 
 -- more keybinds!
