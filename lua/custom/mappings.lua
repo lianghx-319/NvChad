@@ -7,6 +7,17 @@ M.disabled = {
     ["<C-l>"] = "",
     ["<C-j>"] = "",
     ["<C-k>"] = "",
+    ["<leader>ca"] = "",
+  },
+}
+
+M.lspsaga = {
+  n = {
+    ["gh"] = { "<cmd> Lspsaga lsp_finder <CR>", "Lspsage finder" },
+    ["<leader>ca"] = {"<cmd> Lspsaga code_action <CR>", "Lspsaga code action"},
+  },
+  v = {
+    ["<leader>ca"] = {"<cmd> Lspsaga code_action <CR>", "Lspsaga code action"},
   },
 }
 
@@ -25,7 +36,7 @@ M.general = {
       function()
         require("base46").toggle_transparency()
       end,
-      "Toggle transparency"
+      "Toggle transparency",
     },
   },
 }
