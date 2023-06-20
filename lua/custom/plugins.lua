@@ -111,7 +111,7 @@ local plugins = {
   -- ChatGPT
   {
     "lianghx-319/ChatGPT.nvim",
-    event = "VeryLazy",
+    cmd={"ChatGPT", "ChatGPTRun", "ChatGPTActAs", "ChatGPTCompleteCode", "ChatGPTEditWithInstructions"},
     version = "main",
     dependencies = {
       "MunifTanjim/nui.nvim",
