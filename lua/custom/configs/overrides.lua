@@ -70,4 +70,8 @@ M.nvimtree = {
   },
 }
 
+M.gitsigns = {
+  current_line_blame = true,
+}
+
 return M

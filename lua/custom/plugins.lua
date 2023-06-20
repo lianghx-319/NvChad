@@ -6,6 +6,10 @@ local plugins = {
   -- Override plugin definition options
 
   {
+    "lewis6991/gitsigns.nvim",
+    opts = overrides.gitsigns,
+  },
+  {
     "neovim/nvim-lspconfig",
     dependencies = {
       -- format & linting
