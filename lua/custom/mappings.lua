@@ -14,10 +14,16 @@ M.disabled = {
 M.lspsaga = {
   n = {
     ["gh"] = { "<cmd> Lspsaga lsp_finder <CR>", "Lspsage finder" },
-    ["<leader>ca"] = {"<cmd> Lspsaga code_action <CR>", "Lspsaga code action"},
+    ["<leader>ca"] = { "<cmd> Lspsaga code_action <CR>", "Lspsaga code action" },
   },
   v = {
-    ["<leader>ca"] = {"<cmd> Lspsaga code_action <CR>", "Lspsaga code action"},
+    ["<leader>ca"] = { "<cmd> Lspsaga code_action <CR>", "Lspsaga code action" },
+  },
+}
+
+M.lazygit = {
+  n = {
+    ["<leader>gg"] = { "<cmd> LazyGit <CR>", "Open LazyGit" },
   },
 }
 

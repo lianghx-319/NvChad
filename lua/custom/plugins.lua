@@ -190,14 +190,26 @@ local plugins = {
   {
     "glepnir/lspsaga.nvim",
     event = "LspAttach",
-    config = function ()
+    config = function()
       local M = require "custom.configs.lspsaga"
       require("lspsaga").setup(M.options)
     end,
     dependencies = {
-      {"nvim-tree/nvim-web-devicons"},
+      { "nvim-tree/nvim-web-devicons" },
       --Please make sure you install markdown and markdown_inline parser
-      {"nvim-treesitter/nvim-treesitter"},
+      { "nvim-treesitter/nvim-treesitter" },
+    },
+  },
+
+  {
+    "kdheepak/lazygit.nvim",
+    cmd = { "LazyGit" },
+    keys = {
+      { "<leader>gg", mode = "n" },
+    },
+    -- optional for floating window border decoration
+    dependencies = {
+      "nvim-lua/plenary.nvim",
     },
   },
 }
