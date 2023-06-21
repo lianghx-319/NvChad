@@ -12,18 +12,25 @@ M.disabled = {
 }
 
 M.lspsaga = {
+  plugin = true,
   n = {
-    ["gh"] = { "<cmd> Lspsaga lsp_finder <CR>", "Lspsage finder" },
-    ["<leader>ca"] = { "<cmd> Lspsaga code_action <CR>", "Lspsaga code action" },
+    ["gh"] = { "<cmd>Lspsaga lsp_finder<CR>", "Lspsage finder" },
+    ["<leader>ca"] = { "<cmd>Lspsaga code_action<CR>", "Lspsaga code action" },
   },
   v = {
-    ["<leader>ca"] = { "<cmd> Lspsaga code_action <CR>", "Lspsaga code action" },
+    ["<leader>ca"] = { "<cmd>Lspsaga code_action<CR>", "Lspsaga code action" },
   },
 }
 
 M.lazygit = {
   n = {
-    ["<leader>gg"] = { "<cmd> LazyGit <CR>", "Open LazyGit" },
+    ["<leader>gg"] = {
+      function()
+        local term = require("nvterm.terminal").new "float"
+        vim.api.nvim_chan_send(term.job_id, "lazygit\n")
+      end,
+      "open Lazygit",
+    },
   },
 }
 
@@ -32,10 +39,10 @@ M.general = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
 
     -- switch between windows with vim-tmux-navigator
-    ["<C-h>"] = { "<cmd> TmuxNavigateLeft <CR>", "Tmux left" },
-    ["<C-l>"] = { "<cmd> TmuxNavigateRight <CR>", "Tmux right" },
-    ["<C-j>"] = { "<cmd> TmuxNavigateDown <CR>", "Tmux down" },
-    ["<C-k>"] = { "<cmd> TmuxNavigateUp <CR>", "Tmux up" },
+    ["<C-h>"] = { "<cmd>TmuxNavigateLeft<CR>", "Tmux left" },
+    ["<C-l>"] = { "<cmd>TmuxNavigateRight<CR>", "Tmux right" },
+    ["<C-j>"] = { "<cmd>TmuxNavigateDown<CR>", "Tmux down" },
+    ["<C-k>"] = { "<cmd>TmuxNavigateUp<CR>", "Tmux up" },
 
     -- toggle transparency
     ["<leader>tt"] = {
@@ -50,7 +57,7 @@ M.general = {
 M.dap = {
   plugin = true,
   n = {
-    ["<leader>db"] = { "<cmd> DapToggleBreakpoint <CR>" },
+    ["<leader>db"] = { "<cmd>DapToggleBreakpoint<CR>" },
     ["<leader>dus"] = {
       function()
         local widgets = require "dap.ui.widgets"

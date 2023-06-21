@@ -7,10 +7,17 @@ end
 local b = null_ls.builtins
 
 local sources = {
+  -- spell check
+  b.diagnostics.cspell.with {
+    diagnostics_postprocess = function(diagnostic)
+      diagnostic.severity = vim.diagnostic.severity.HINT
+    end,
+  },
+  b.code_actions.cspell,
 
   -- webdev stuff
-  b.formatting.deno_fmt, -- choosed deno for ts/js files cuz its very fast!
-  b.formatting.prettier.with { filetypes = { "html", "markdown", "css" } }, -- so prettier works only on these filetypes
+  -- b.formatting.deno_fmt, -- choosed deno for ts/js files cuz its very fast!
+  -- b.formatting.prettier.with { filetypes = { "html", "markdown", "css" } }, -- so prettier works only on these filetypes
 
   -- Lua
   b.formatting.stylua,

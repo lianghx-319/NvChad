@@ -24,11 +24,15 @@ M.treesitter = {
 
 M.mason = {
   ensure_installed = {
+    -- spell check
+    "cspell",
+
     -- lua stuff
     "lua-language-server",
     "stylua",
 
     -- web dev stuff
+    "tailwindcss-language-server",
     "css-lsp",
     "html-lsp",
     "typescript-language-server",
@@ -72,6 +76,21 @@ M.nvimtree = {
 
 M.gitsigns = {
   current_line_blame = true,
+}
+
+M.nvterm = {
+  terminals = {
+    type_opts = {
+      float = {
+        relative = "editor",
+        row = 0,
+        col = 0,
+        width = 0.8,
+        height = 0.8,
+        border = "single",
+      },
+    },
+  },
 }
 
 return M

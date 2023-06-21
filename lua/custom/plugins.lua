@@ -6,6 +6,10 @@ local plugins = {
   -- Override plugin definition options
 
   {
+    "NvChad/nvterm",
+    opts = overrides.nvterm,
+  },
+  {
     "lewis6991/gitsigns.nvim",
     opts = overrides.gitsigns,
   },
@@ -111,7 +115,7 @@ local plugins = {
   -- ChatGPT
   {
     "lianghx-319/ChatGPT.nvim",
-    cmd={"ChatGPT", "ChatGPTRun", "ChatGPTActAs", "ChatGPTCompleteCode", "ChatGPTEditWithInstructions"},
+    cmd = { "ChatGPT", "ChatGPTRun", "ChatGPTActAs", "ChatGPTCompleteCode", "ChatGPTEditWithInstructions" },
     version = "main",
     dependencies = {
       "MunifTanjim/nui.nvim",
@@ -193,6 +197,9 @@ local plugins = {
 
   {
     "glepnir/lspsaga.nvim",
+    init = function()
+      require("core.utils").load_mappings "lspsaga"
+    end,
     event = "LspAttach",
     config = function()
       local M = require "custom.configs.lspsaga"
@@ -207,9 +214,12 @@ local plugins = {
 
   {
     "kdheepak/lazygit.nvim",
+    init = function()
+      require("core.utils").load_mappings "lazygit"
+    end,
     cmd = { "LazyGit" },
     keys = {
-      { "<leader>gg", mode = "n" },
+      { "<leader>gg" },
     },
     -- optional for floating window border decoration
     dependencies = {
