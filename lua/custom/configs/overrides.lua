@@ -36,7 +36,6 @@ M.mason = {
     "css-lsp",
     "html-lsp",
     "typescript-language-server",
-    "deno",
     "prettier",
 
     -- c/cpp stuff
@@ -76,21 +75,6 @@ M.nvimtree = {
 
 M.gitsigns = {
   current_line_blame = true,
-}
-
-M.nvterm = {
-  terminals = {
-    type_opts = {
-      float = {
-        relative = "editor",
-        row = 0,
-        col = 0,
-        width = 0.8,
-        height = 0.8,
-        border = "single",
-      },
-    },
-  },
 }
 
 return M
