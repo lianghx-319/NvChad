@@ -217,10 +217,7 @@ local plugins = {
     init = function()
       require("core.utils").load_mappings "lazygit"
     end,
-    cmd = { "LazyGit" },
-    keys = {
-      { "<leader>gg" },
-    },
+    event = "VeryLazy",
     -- optional for floating window border decoration
     dependencies = {
       "nvim-lua/plenary.nvim",
