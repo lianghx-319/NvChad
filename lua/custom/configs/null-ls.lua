@@ -24,6 +24,9 @@ local sources = {
 
   -- cpp
   b.formatting.clang_format,
+
+  -- json
+  b.formatting.fixjson,
 }
 
 null_ls.setup {

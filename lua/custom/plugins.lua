@@ -19,6 +19,8 @@ local plugins = {
       -- format & linting
       {
         "jose-elias-alvarez/null-ls.nvim",
+        event = { "BufReadPre", "BufNewFile" },
+        dependencies = { "mason.nvim" },
         config = function()
           require "custom.configs.null-ls"
         end,
@@ -39,7 +41,7 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
-    dependencies = {"windwp/nvim-ts-autotag"}
+    dependencies = { "windwp/nvim-ts-autotag" },
   },
 
   {
