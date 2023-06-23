@@ -27,16 +27,16 @@ M.lspsaga = {
     ["gt"] = { "<cmd>Lspsaga peek_type_definition<CR>", "Lspsaga peek type definition" },
     ["<leader>sl"] = { "<cmd>Lspsaga show_line_diagnostics<CR>", "Lspsaga show line diagnostics" },
     ["<leader>sw"] = { "<cmd>Lspsaga show_workspace_diagnostics<CR>", "Lspsaga show workspace diagnostics" },
-    ["<leader>sr"] = { "<cmd>Lspsaga show_cursor_diagnostics<CR>", "Lspsaga show cursor diagnostics" },
+    ["<leader>sc"] = { "<cmd>Lspsaga show_cursor_diagnostics<CR>", "Lspsaga show cursor diagnostics" },
     ["[e"] = {
       function()
-        require("lspsaga.diagnostics"):goto_prev { severity = vim.diagnostic.severity.ERROR }
+        require("lspsaga.diagnostic"):goto_prev { severity = vim.diagnostic.severity.ERROR }
       end,
       "Lspsaga goto prev error",
     },
     ["]e"] = {
       function()
-        require("lspsaga.diagnostics"):goto_next { severity = vim.diagnostic.severity.ERROR }
+        require("lspsaga.diagnostic"):goto_next { severity = vim.diagnostic.severity.ERROR }
       end,
       "Lspsaga goto prev error",
     },

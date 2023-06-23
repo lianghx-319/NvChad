@@ -13,5 +13,5 @@ g.dap_virtual_text = true
 
 -------------------------------------- options ------------------------------------------
 opt.relativenumber = true -- default relative line number
-opt.textwidth = 80
+opt.textwidth = 120
 opt.colorcolumn = '+1'
