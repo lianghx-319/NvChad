@@ -6,6 +6,27 @@ end
 
 local b = null_ls.builtins
 
+local function has_eslint_rc(utils)
+-- detect there are eslint config file under the root of the project
+  return utils.root_has_file { ".eslintrc.js", ".eslintrc.json" }
+end
+
+local function has_package_json(utils)
+  return utils.root_has_file { "package.json" }
+end
+
+local function has_prettier_rc(utils)
+  return utils.root_has_file { ".prettierrc", ".prettierrc.js" }
+end
+
+local function should_format_with_eslint(utils)
+  return has_package_json(utils) and has_eslint_rc(utils) and not has_prettier_rc(utils)
+end
+
+local function should_format_with_prettier(utils)
+  return has_prettier_rc(utils) and has_package_json(utils)
+end
+
 local sources = {
   -- spell check
   b.diagnostics.cspell.with {
@@ -27,9 +48,23 @@ local sources = {
 
   -- json
   b.formatting.fixjson,
+
+  -- eslint
+  b.diagnostics.eslint_d,
+  b.code_actions.eslint_d,
+  b.formatting.eslint_d.with {
+    condition = should_format_with_eslint,
+  },
+  b.formatting.prettierd.with {
+    condition = should_format_with_prettier,
+  },
+
+  -- fish
+  b.diagnostics.fish,
 }
 
 null_ls.setup {
+  diagnostics_format = "[#{c}] #{m} (#{s})",
   debug = true,
   sources = sources,
 }
