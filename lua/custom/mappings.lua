@@ -44,6 +44,7 @@ M.lspsaga = {
     ["<leader>o"] = { "<cmd>Lspsaga outline<CR>", "Lspsaga outline" },
     ["<leader>ci"] = { "<cmd>Lspsaga incoming_calls<CR>", "Lspsaga incoming calls" },
     ["<leader>co"] = { "<cmd>Lspsaga outgoing_calls<CR>", "Lspsaga outgoing calls" },
+    [";"] = { ":", "enter command mode", opts = { nowait = true } },
   },
   v = {
     ["<leader>ca"] = { "<cmd>Lspsaga code_action<CR>", "Lspsaga code action" },
