@@ -13,6 +13,7 @@ M.disabled = {
     ["gD"] = "", -- disabled lsp goto_definition
     ["<leader>D"] = "", -- disabled lsp goto_type_definition
     ["<leader>f"] = "", -- disabled lsp float diagnostics
+    ["<leader>ph"] = "", --disabled gitsigns perview hunk
   },
 }
 
@@ -21,7 +22,7 @@ M.lspsaga = {
   n = {
     ["gh"] = { "<cmd>Lspsaga lsp_finder<CR>", "Lspsaga finder" },
     ["<leader>ca"] = { "<cmd>Lspsaga code_action<CR>", "Lspsaga code action" },
-    ["gr"] = { "<cmd>Lspsaga rename ++project<CR>", "Lspsaga rename" },
+    ["gr"] = { "<cmd>Lspsaga rename <CR>", "Lspsaga rename" },
     ["gp"] = { "<cmd>Lspsaga peek_definition<CR>", "Lspsaga peek definition" },
     ["gd"] = { "<cmd>Lspsaga goto_definition<CR>", "Lspsaga goto definition" },
     ["gt"] = { "<cmd>Lspsaga peek_type_definition<CR>", "Lspsaga peek type definition" },
