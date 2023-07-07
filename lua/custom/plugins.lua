@@ -2,7 +2,11 @@ local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
-
+  {
+    "m4xshen/hardtime.nvim",
+    lazy = false,
+    opts = {},
+  },
   -- Override plugin definition options
   {
     "numToStr/Comment.nvim",
@@ -11,7 +15,7 @@ local plugins = {
       require("Comment").setup {
         pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
       }
-    end
+    end,
   },
   {
     "NvChad/nvterm",
@@ -24,6 +28,14 @@ local plugins = {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
+      {
+        "SmiteshP/nvim-navbuddy",
+        dependencies = {
+          "SmiteshP/nvim-navic",
+          "MunifTanjim/nui.nvim",
+        },
+        opts = { lsp = { auto_attach = true } },
+      },
       -- format & linting
       {
         "jose-elias-alvarez/null-ls.nvim",

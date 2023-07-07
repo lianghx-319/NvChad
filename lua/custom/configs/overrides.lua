@@ -21,7 +21,7 @@ M.treesitter = {
     -- },
   },
   autotag = { enable = true },
-  context_commentstring = {enable = true},
+  context_commentstring = { enable = true },
 }
 
 M.mason = {
@@ -72,6 +72,9 @@ M.nvimtree = {
   actions = {
     open_file = {
       quit_on_open = true,
+      window_picker = {
+        enable = false,
+      },
     },
   },
 }

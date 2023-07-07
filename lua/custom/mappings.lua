@@ -42,7 +42,7 @@ M.lspsaga = {
       "Lspsaga goto prev error",
     },
     ["K"] = { "<cmd>Lspsaga hover_doc<CR>", "Lspsage hover doc" },
-    ["<leader>o"] = { "<cmd>Lspsaga outline<CR>", "Lspsaga outline" },
+    ["<leader>o"] = { "<cmd>Navbuddy<CR>", "Navbuddy" },
     ["<leader>ci"] = { "<cmd>Lspsaga incoming_calls<CR>", "Lspsaga incoming calls" },
     ["<leader>co"] = { "<cmd>Lspsaga outgoing_calls<CR>", "Lspsaga outgoing calls" },
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
