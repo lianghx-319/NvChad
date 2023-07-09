@@ -157,6 +157,17 @@ local plugins = {
       require("chatgpt").setup {
         api_key_cmd = "pass show open_ai/api/token",
         api_host_cmd = "pass show open_ai/api/proxy_host",
+        edit_with_instructions = {
+          diff = false,
+          keymaps = {
+            close = "<C-c>",
+            accept = "<C-y>",
+            toggle_diff = "<C-d>",
+            toggle_settings = "<C-o>",
+            cycle_windows = "<Tab>",
+            use_output_as_input = "<C-e>",
+          },
+        },
       }
     end,
   },
@@ -258,6 +269,7 @@ local plugins = {
   -- better yank/paste
   {
     "gbprod/yanky.nvim",
+    event = "VeryLazy",
     dependencies = { { "kkharji/sqlite.lua", enabled = not jit.os:find "Windows" } },
     opts = function()
       local mapping = require "yanky.telescope.mapping"
@@ -280,8 +292,8 @@ local plugins = {
       { "y", "<Plug>(YankyYank)", mode = { "n", "x" }, desc = "Yank text" },
       { "p", "<Plug>(YankyPutAfter)", mode = { "n", "x" }, desc = "Put yanked text after cursor" },
       { "P", "<Plug>(YankyPutBefore)", mode = { "n", "x" }, desc = "Put yanked text before cursor" },
-      { "gp", "<Plug>(YankyGPutAfter)", mode = { "n", "x" }, desc = "Put yanked text after selection" },
-      { "gP", "<Plug>(YankyGPutBefore)", mode = { "n", "x" }, desc = "Put yanked text before selection" },
+      -- { "gp", "<Plug>(YankyGPutAfter)", mode = { "n", "x" }, desc = "Put yanked text after selection" },
+      -- { "gP", "<Plug>(YankyGPutBefore)", mode = { "n", "x" }, desc = "Put yanked text before selection" },
       { "[y", "<Plug>(YankyCycleForward)", desc = "Cycle forward through yank history" },
       { "]y", "<Plug>(YankyCycleBackward)", desc = "Cycle backward through yank history" },
       { "]p", "<Plug>(YankyPutIndentAfterLinewise)", desc = "Put indented after cursor (linewise)" },
