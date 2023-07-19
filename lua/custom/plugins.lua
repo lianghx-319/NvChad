@@ -5,7 +5,9 @@ local plugins = {
   {
     "m4xshen/hardtime.nvim",
     lazy = false,
-    opts = {},
+    opts = {
+      disabled_filetypes = { "qf", "netrw", "NvimTree", "lazy", "mason", "sagafinder" },
+    },
   },
   -- Override plugin definition options
   {
