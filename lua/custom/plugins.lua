@@ -2,13 +2,15 @@ local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
-  {
-    "m4xshen/hardtime.nvim",
-    lazy = false,
-    opts = {
-      disabled_filetypes = { "qf", "netrw", "NvimTree", "lazy", "mason", "sagafinder" },
-    },
-  },
+  -- {
+  --   "m4xshen/hardtime.nvim",
+  --   opts = {
+  --     disabled_filetypes = { "qf", "netrw", "NvimTree", "lazy", "mason", "sagafinder" },
+  --   },
+  --   dependencies = {
+  --     "folke/which-key.nvim",
+  --   },
+  -- },
   -- Override plugin definition options
   {
     "numToStr/Comment.nvim",
@@ -100,9 +102,7 @@ local plugins = {
     "kylechui/nvim-surround",
     event = "VeryLazy",
     config = function()
-      require("nvim-surround").setup {
-        -- Configuration here, or leave empty to use defaults
-      }
+      require("nvim-surround").setup {}
     end,
   },
   {
@@ -271,7 +271,6 @@ local plugins = {
   -- better yank/paste
   {
     "gbprod/yanky.nvim",
-    event = "VeryLazy",
     dependencies = { { "kkharji/sqlite.lua", enabled = not jit.os:find "Windows" } },
     opts = function()
       local mapping = require "yanky.telescope.mapping"

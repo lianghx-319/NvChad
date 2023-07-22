@@ -7,7 +7,7 @@ end
 local b = null_ls.builtins
 
 local function has_eslint_rc(utils)
--- detect there are eslint config file under the root of the project
+  -- detect there are eslint config file under the root of the project
   return utils.root_has_file { ".eslintrc.js", ".eslintrc.json" }
 end
 
