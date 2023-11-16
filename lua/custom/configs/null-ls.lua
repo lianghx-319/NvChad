@@ -8,7 +8,7 @@ local b = null_ls.builtins
 
 local function has_eslint_rc(utils)
   -- detect there are eslint config file under the root of the project
-  return utils.root_has_file { ".eslintrc.js", ".eslintrc.json" }
+  return utils.root_has_file { ".eslintrc.js", ".eslintrc.json", "eslint.config.js" }
 end
 
 local function has_package_json(utils)
@@ -44,12 +44,13 @@ local sources = {
   -- eslint
   b.diagnostics.eslint_d,
   b.code_actions.eslint_d,
-  b.formatting.eslint_d.with {
-    condition = should_format_with_eslint,
-  },
-  b.formatting.prettierd.with {
-    condition = should_format_with_prettier,
-  },
+  -- b.formatting.eslint_d.with {
+  --   condition = should_format_with_eslint,
+  -- },
+  -- b.formatting.prettierd.with {
+  --   condition = should_format_with_prettier,
+  -- },
+  b.formatting.prettierd,
 
   -- fish
   b.diagnostics.fish,
