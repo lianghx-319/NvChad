@@ -22,6 +22,9 @@ local plugins = {
     end,
   },
   {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+  },
+  {
     "NvChad/nvterm",
     opts = overrides.nvterm,
   },
@@ -65,7 +68,7 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
-    dependencies = { "windwp/nvim-ts-autotag", "JoosepAlviste/nvim-ts-context-commentstring" },
+    dependencies = { "windwp/nvim-ts-autotag" },
   },
 
   {
@@ -147,9 +150,8 @@ local plugins = {
 
   -- ChatGPT
   {
-    "lianghx-319/ChatGPT.nvim",
+    "jackMort/ChatGPT.nvim",
     cmd = { "ChatGPT", "ChatGPTRun", "ChatGPTActAs", "ChatGPTCompleteCode", "ChatGPTEditWithInstructions" },
-    version = "main",
     dependencies = {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",
