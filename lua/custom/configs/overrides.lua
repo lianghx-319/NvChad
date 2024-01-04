@@ -67,6 +67,7 @@ M.nvimtree = {
 
   view = {
     side = "right",
+    width = 50,
   },
 
   actions = {
