@@ -14,6 +14,6 @@ g.dap_virtual_text = true
 -------------------------------------- options ------------------------------------------
 opt.relativenumber = true -- default relative line number
 opt.textwidth = 120
-opt.colorcolumn = '+1'
+opt.colorcolumn = "+1"
 opt.spell = true
-opt.spelllang = 'en_us'
+opt.spelllang = "en_us"

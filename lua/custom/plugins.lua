@@ -185,12 +185,9 @@ local plugins = {
     },
   },
   {
-    "simrat39/rust-tools.nvim",
-    ft = "rust",
-    dependencies = "neovim/nvim-lspconfig",
-    config = function()
-      require("rust-tools").setup(require "custom.configs.rust-tools")
-    end,
+    "mrcjkb/rustaceanvim",
+    version = "^4", -- Recommended
+    ft = { "rust" },
   },
   {
     "mfussenegger/nvim-dap",
@@ -211,13 +208,6 @@ local plugins = {
         sources = { { name = "crates" } },
       }
       crates.show()
-    end,
-  },
-  {
-    "rust-lang/rust.vim",
-    ft = "rust",
-    init = function()
-      vim.g.rustfmt_autosave = 1
     end,
   },
   {
